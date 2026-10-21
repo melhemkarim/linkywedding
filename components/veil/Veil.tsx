@@ -111,10 +111,10 @@ export default function Veil({ tier, name, lift, tilt, onOpened }: Props) {
         animate={{ opacity: touched ? 0 : 1 }}
         transition={{ duration: touched ? 0.5 : 1.6, delay: touched ? 0 : 1.8 }}
       >
-        <svg width="14" height="22" viewBox="0 0 14 22" className="mb-2 text-[#8a6a2f]" style={{ animation: 'hintRise 2.8s ease-in-out infinite' }}>
+        <svg width="14" height="22" viewBox="0 0 14 22" className="mb-2 text-[#FDDC5C]" style={{ animation: 'hintRise 2.8s ease-in-out infinite' }}>
           <path d="M1 8l6-6 6 6M7 3v17" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
-        <span className="font-sans text-[10.5px] font-normal uppercase tracking-[0.42em] text-[#7a5d28]">
+        <span className="font-sans text-[10.5px] font-bold uppercase tracking-[0.42em] text-[#FDDC5C]">
           Drag up to open
         </span>
       </motion.div>
