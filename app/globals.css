@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+[data-theme='emerald'] {
+  --bg: #05201a;
+  --bg2: #0a2d24;
+  --ivory: #f5efe2;
+  --paper: #f6f0e3;
+  --ink: #1c2a25;
+  --gold: #d6b97a;
+  --gold-soft: #ecdcb0;
+  --gold-deep: #a8822f;
+  --silk-a: #07261e;
+  --silk-b: #0e3a2e;
+}
+
+[data-theme='noir'] {
+  --bg: #0a0a0b;
+  --bg2: #151413;
+  --ivory: #f5efe2;
+  --paper: #f6f0e3;
+  --ink: #1b1a18;
+  --gold: #d6b97a;
+  --gold-soft: #ecdcb0;
+  --gold-deep: #a8822f;
+  --silk-a: #0c0c0d;
+  --silk-b: #1d1b19;
+}
+
+html {
+  background: #05201a;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+body {
+  min-height: 100svh;
+  background: var(--bg);
+  color: var(--ivory);
+  font-family: Jost, system-ui, sans-serif;
+  font-weight: 300;
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.gold-text {
+  background: linear-gradient(100deg, #b08a4a 0%, #f3e4b8 30%, #c9a45f 52%, #f8edcb 74%, #b08a4a 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: goldSheen 11s ease-in-out infinite alternate;
+}
+
+@keyframes goldSheen {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
+}
+
+.lining {
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: 'lnum' 1, 'tnum' 1;
+}
+
+/* Floating gold dust in the hero (CSS only, cheap on GPU) */
+@keyframes dust {
+  0% { transform: translate3d(0, 0, 0); opacity: 0; }
+  15% { opacity: var(--o, 0.7); }
+  85% { opacity: var(--o, 0.7); }
+  100% { transform: translate3d(var(--dx, 12px), -140px, 0); opacity: 0; }
+}
+
+@keyframes hintRise {
+  0%, 100% { transform: translateY(0); opacity: 0.55; }
+  50% { transform: translateY(-9px); opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+.shake { animation: shake 0.4s ease; }
+
+/* CSS fallback veil (low-end devices) */
+.veil-lite-mesh {
+  background-color: rgba(250, 246, 238, 0.64);
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0) 1.5px, rgba(255, 255, 255, 0.5) 2.4px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.04));
+  background-size: 7px 7px, 100% 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gold-text { animation: none; }
+}
